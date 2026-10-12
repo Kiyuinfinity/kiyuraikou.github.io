@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<a href="https://www.cococ.com"
+   target="_blank"
+   rel="noopener noreferrer">
+</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thị trường lao động - Thu thập và phân tích thông tin</title>
+  <style>
+    :root {
+      --blue: #1688df;
+      --blue-dark: #123f83;
+      --green: #07966e;
+      --green-dark: #075b45;
+      --purple: #7950d5;
+      --purple-dark: #4d2a91;
+      --pink: #e83f83;
+      --pink-dark: #ad245c;
+      --paper: #ffffff;
+      --ink: #18345d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f5faff, #fff8fc);
+      line-height: 1.55;
+    }
+    a { color: #075fb8; overflow-wrap: anywhere; }
+    a:hover { color: #d12c72; }
+    .page { max-width: 1440px; margin: auto; padding: 24px; }
+    .hero {
+      text-align: center;
+      color: white;
+      background: linear-gradient(120deg, #164c9b, #286ec5);
+      border-radius: 28px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 22px #174a8c26;
+      margin-bottom: 24px;
+    }
+    .hero h1 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.6rem); line-height: 1.2; }
+    .hero p { margin: 12px 0 0; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; }
+    .columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+    .panel { background: white; border: 2px solid; border-radius: 22px; overflow: hidden; box-shadow: 0 5px 18px #102a4a0d; }
+    .panel.blue { border-color: var(--blue); }
+    .panel.green { border-color: var(--green); }
+    .panel.purple { border-color: var(--purple); }
+    .panel-head { display: flex; align-items: center; gap: 12px; padding: 16px; }
+    .blue .panel-head { background: #e3f4ff; color: var(--blue-dark); }
+    .green .panel-head { background: #e0fff2; color: var(--green-dark); }
+    .purple .panel-head { background: #f0e8ff; color: var(--purple-dark); }
+    .number { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; color: white; font-size: 1.5rem; font-weight: 800; }
+    .blue .number { background: var(--blue); }
+    .green .number { background: var(--green); }
+    .purple .number { background: var(--purple); }
+    h2 { font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.25; margin: 0; }
+    .intro { padding: 0 16px 10px; margin: 0; }
+    .inner { padding: 0 12px 12px; }
+    .mini-card { border: 1.5px solid; border-radius: 14px; padding: 12px; margin-top: 10px; background: #ffffffb8; }
+    .blue .mini-card { border-color: #8bcfff; }
+    .green .mini-card { border-color: #8be0bd; }
+    .purple .mini-card { border-color: #c1a8ff; }
+    .mini-title { display: flex; align-items: center; gap: 9px; font-weight: 800; margin: 0 0 5px; }
+    .emoji { font-size: 1.5rem; }
+    ul { padding-left: 20px; margin: 6px 0 0; }
+    li { margin: 3px 0; }
+    .links { margin-top: 10px; border-top: 1px dashed #9eb1c8; padding-top: 8px; font-size: .92rem; }
+    .links strong { display: block; margin-bottom: 4px; }
+    .conclusion { margin-top: 20px; border: 2px solid var(--pink); border-radius: 22px; background: #fff0f7; padding: 18px; }
+    .conclusion h2 { color: var(--pink-dark); font-size: 1.5rem; margin-bottom: 12px; }
+    .bottom-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .pink-card { border: 1.5px solid #f39abd; background: #fffafd; border-radius: 14px; padding: 13px; }
+    .pink-card h3 { margin: 0; color: var(--pink-dark); }
+    .footer { text-align: center; margin-top: 18px; padding: 18px; border-radius: 20px; background: #dceeff; color: #174b8b; font-size: 1.1rem; font-weight: 700; }
+    .edit-note { margin-top: 18px; padding: 14px; background: #fff9df; border: 1px solid #f0d36a; border-radius: 12px; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 5px; }
+    @media (max-width: 950px) {
+      .columns { grid-template-columns: 1fr; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .page { padding: 12px; }
+    }
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .panel, .hero, .conclusion { break-inside: avoid; box-shadow: none; }
+      .edit-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>THU THẬP VÀ PHÂN TÍCH THÔNG TIN CƠ BẢN<br>VỀ THỊ TRƯỜNG LAO ĐỘNG</h1>
+      <p>— Nhu cầu sử dụng thị trường lao động —</p>
+    </header>
+
+    <section class="columns" aria-label="Các bước tìm hiểu thị trường lao động">
+      <article class="panel blue">
+        <div class="panel-head">
+          <span class="number">1</span>
+          <h2>THU THẬP THÔNG TIN</h2>
+        </div>
+        <p class="intro">Thu thập dữ liệu, số liệu về thị trường lao động từ nhiều nguồn khác nhau.</p>
+        <div class="inner">
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">📋</span> Nguồn thứ cấp (sẵn có)</h3>
+            <ul>
+              <li>Báo cáo của Tổng cục Thống kê.</li>
+              <li>Bộ Lao động – Thương binh và Xã hội, các trang web chính phủ.</li>
+              <li>Báo cáo thị trường lao động, báo chí và cổng thông tin tuyển dụng.</li>
+            </ul>
+            <div class="links">
+              <strong>Liên kết tham khảo:</strong>
+              <!-- Thay URL bên dưới bằng đường link bạn muốn -->
+              <a href="https://www.gso.gov.vn/" target="_blank" rel="noopener noreferrer">Tổng cục Thống kê</a><br>
+              <a href="https://www.vietnamworks.com/" target="_blank" rel="noopener noreferrer">VietnamWorks</a>
+            </div>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">👥</span> Nguồn sơ cấp (khảo sát, phỏng vấn)</h3>
+            <ul>
+              <li>Khảo sát người lao động và doanh nghiệp.</li>
+              <li>Phỏng vấn chuyên gia, nhà tuyển dụng.</li>
+              <li>Điều tra tại trường học, cơ sở đào tạo.</li>
+            </ul>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">💻</span> Các công cụ hỗ trợ</h3>
+            <ul>
+              <li>Phiếu khảo sát, bảng hỏi.</li>
+              <li>Biểu mẫu thống kê.</li>
+              <li>Internet và phần mềm thống kê.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="panel green">
+        <div class="panel-head">
+          <span class="number">2</span>
+          <h2>PHÂN TÍCH THÔNG TIN</h2>
+        </div>
+        <p class="intro">Xử lý, đánh giá và rút ra kết luận từ thông tin đã thu thập.</p>
+        <div class="inner">
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">📊</span> Phân tích thực trạng</h3>
+            <ul>
+              <li>Quy mô và cơ cấu lực lượng lao động.</li>
+              <li>Tỷ lệ thất nghiệp, thiếu việc làm.</li>
+              <li>Cơ cấu ngành nghề và trình độ lao động.</li>
+            </ul>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">📈</span> Phân tích xu hướng</h3>
+            <ul>
+              <li>Xu hướng biến động của cung – cầu lao động.</li>
+              <li>Ảnh hưởng của công nghệ và chuyển đổi số.</li>
+              <li>Tác động của hội nhập quốc tế.</li>
+            </ul>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">🔎</span> Cơ hội và thách thức</h3>
+            <ul>
+              <li>Cơ hội: ngành nghề tiềm năng, nhu cầu mới.</li>
+              <li>Thách thức: cạnh tranh việc làm, thiếu kỹ năng phù hợp.</li>
+              <li>Biến động kinh tế – xã hội.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="panel purple">
+        <div class="panel-head">
+          <span class="number">3</span>
+          <h2>NHU CẦU SỬ DỤNG THỊ TRƯỜNG LAO ĐỘNG</h2>
+        </div>
+        <p class="intro">Xác định ngành nghề, kỹ năng và trình độ mà thị trường lao động đang cần.</p>
+        <div class="inner">
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">🧰</span> Theo ngành nghề</h3>
+            <ul>
+              <li>Công nghiệp, chế biến, chế tạo.</li>
+              <li>Dịch vụ, du lịch, logistics, thương mại.</li>
+              <li>Nông nghiệp công nghệ cao.</li>
+              <li>Công nghệ thông tin và trí tuệ nhân tạo.</li>
+            </ul>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">⚙️</span> Theo kỹ năng</h3>
+            <ul>
+              <li>Kỹ năng chuyên môn, tay nghề kỹ thuật.</li>
+              <li>Kỹ năng mềm: giao tiếp, làm việc nhóm, tư duy sáng tạo.</li>
+              <li>Kỹ năng số, ngoại ngữ và tin học.</li>
+            </ul>
+          </section>
+          <section class="mini-card">
+            <h3 class="mini-title"><span class="emoji">🎓</span> Theo trình độ</h3>
+            <ul>
+              <li>Lao động phổ thông.</li>
+              <li>Trung cấp, cao đẳng.</li>
+              <li>Đại học và sau đại học.</li>
+            </ul>
+          </section>
+          <div class="links">
+            <strong>Liên kết tham khảo:</strong>
+            <!-- Có thể đổi href thành trang bạn muốn -->
+            <a href="https://www.topcv.vn/" target="_blank" rel="noopener noreferrer">TopCV – việc làm</a><br>
+            <a href="https://www.careerbuilder.vn/" target="_blank" rel="noopener noreferrer">CareerBuilder Việt Nam</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="conclusion">
+      <h2>4. 💡 RÚT RA KẾT LUẬN VÀ ĐỀ XUẤT</h2>
+      <div class="bottom-grid">
+        <section class="pink-card">
+          <h3>✅ Kết luận</h3>
+          <ul>
+            <li>Thị trường lao động đang có xu hướng gì?</li>
+            <li>Ngành nghề nào đang thiếu hoặc thừa nhân lực?</li>
+            <li>Kỹ năng nào sẽ cần trong tương lai?</li>
+          </ul>
+        </section>
+        <section class="pink-card">
+          <h3>⚙️ Đề xuất</h3>
+          <ul>
+            <li>Định hướng đào tạo phù hợp.</li>
+            <li>Nâng cao kỹ năng cho người lao động.</li>
+            <li>Kết nối cung – cầu lao động.</li>
+            <li>Tận dụng cơ hội, giảm thiểu rủi ro.</li>
+          </ul>
+        </section>
+        <section class="pink-card">
+          <h3>👨‍👩‍👧 Mục tiêu</h3>
+          <ul>
+            <li>Tạo việc làm bền vững.</li>
+            <li>Nâng cao chất lượng nguồn nhân lực.</li>
+            <li>Thích ứng với chuyển đổi số và hội nhập.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <footer class="footer">
+      🎯 Hiểu đúng thị trường lao động hôm nay<br>
+      để chuẩn bị tốt cho cơ hội nghề nghiệp ngày mai!
+    </footer>
+
+    <aside class="edit-note">
+      <strong>📌 Cách thêm đường link của bạn:</strong>
+      tìm đoạn <code>&lt;a href="https://www.example.com"&gt;Tên liên kết&lt;/a&gt;</code>,
+      rồi thay <code>https://www.example.com</code> bằng URL mong muốn và thay “Tên liên kết”
+      bằng chữ muốn hiển thị. Dùng <code>https://</code> hoặc <code>http://</code> ở đầu địa chỉ.
+      <br><strong>Ví dụ:</strong>
+      <code>&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;Mở trang của tôi&lt;/a&gt;</code>
+      sẽ mở liên kết trong tab mới.
+    </aside>
+  </main>
+</body>
+</html>
